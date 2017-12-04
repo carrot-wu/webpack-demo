@@ -88,8 +88,9 @@ module.exports = {
     	hot:true, //热更新
     	/*inline模式开启服务器*/
     	inline:true,
-    	historyApiFallback: false, //跳转页面
-    	openPage:'main.html'
+    	//historyApiFallback: true, //跳转页面
+    	openPage:'main.html', //默认打开的页面
+        open:true //自动打开页面
 
     }
 };
