@@ -8,21 +8,17 @@ const _console = ({ data = 'hello',msg = 'world',dataObj = { text:'123',txt:'456
         yesMsg
     } = dataObj;
 
-    function myPromise(data){
-        return new Promise( (resolve,reject) => {
-
-            if(data === 'test'){
-                resolve(data)
-            }else{
-                reject(data)
-            }
-        })
-    }
 
     let currentTem = ``
-    currentTem = ` 你好 ${data} ${msg} ${text} ${txt} ${yesMsg} ${noMsg}`
+    currentTem = `dsadasdad${data} ${msg} ${text} ${txt} ${yesMsg} ${noMsg}的萨达十大三`
     return currentTem
 };
+
+function addMasj(dara) {
+    console.log(dara)
+}
+addMasj('大飒飒大师大大打算打伞打算打伞')
+
 
 const creatElement = ({ele = 'div',id = 'test',innerHtml = 'no msg'} = {}) => {
     const box = document.getElementById('box')
@@ -30,7 +26,7 @@ const creatElement = ({ele = 'div',id = 'test',innerHtml = 'no msg'} = {}) => {
      dataEle.innerHtml = innerHtml;
      dataEle.setAttribute('id',id);
      box.innerHtml = dataEle
-     console.log(dataEle)
+
 }
 
 export  {_console,creatElement}

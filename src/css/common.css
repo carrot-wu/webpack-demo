@@ -6,6 +6,6 @@ body{
     display: flex;
     justify-content: center;
     align-items:center;
-    background: #dddddd;
+    background:url("../image/image001.jpg");
     
 }
