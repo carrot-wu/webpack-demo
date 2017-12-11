@@ -3,10 +3,9 @@ const fs = require('fs');
 const utils = require('./getFileConfig'); //获取文件名称
 const htmlWepackPlugin = require('html-webpack-plugin'); //html模板插件
 const cleanWebpackPlugin = require('clean-webpack-plugin'); //每次清楚dist文件的插件
+const copyWebpackPluigin = require('copy-webpack-plugin'); //复制文件  用于一些无法npm的第三方框架ui 但是需要在html模板中添加css框架
 
 const webpack = require('webpack') //获取内置的webpack
-//TODO 一些优化 比如html文件可以放入page文件夹以内 但是还没弄或者配置开发环境和打包环境
-
 /*一些多页面应用的配置*/
 
 // 定义入口文件的集合
@@ -26,6 +25,7 @@ templateFileName.forEach((pageName) => {
         /* 删除了 这里加了page目录本来想着页面能够丢到page目录下  后面发现热更新模块并不行 反而资源文件能够读取了*/
         filename: `./page/${pageName}.html`,
         template: path.resolve(__dirname, `./src/page/${pageName}.html`),
+        title:'柔济健康',
         minify: {
             removeComments: true,
             collapseWhitespace: true
@@ -134,9 +134,16 @@ module.exports = {
             minChunks: Infinity,
             // (with more entries, this ensures that no other module
             //  goes into the vendor chunk)
-        })
+        }),
 
-
+        //复制文件
+        new copyWebpackPluigin([
+            {
+                from: path.resolve(__dirname, './src/commonCss/mui.min.css'),
+                to: path.resolve(__dirname, './dist/commonCss'),
+                force: true
+            }
+        ])
     ],
 
 };

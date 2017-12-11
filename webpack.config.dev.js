@@ -43,7 +43,7 @@ module.exports = webpackMerge(webpackBase,{
         /*inline模式开启服务器*/
         inline: true,
         //historyApiFallback: true, //跳转页面
-        openPage: './index.html', //默认打开的页面
+        openPage: './page/index.html', //默认打开的页面
         open: true, //自动打开页面,
         clientLogLevel: "none" //阻止打印那种搞乱七八糟的控制台信息
         //注意  热更新还存在着许多的bug
