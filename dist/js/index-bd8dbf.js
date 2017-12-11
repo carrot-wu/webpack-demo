@@ -1,1 +1,0 @@
-webpackJsonp([1],{10:function(n,o,c){"use strict";c(11),console.log("index"),$("img").on("click",function(){console.log(2)}),[1,2,3,4,5,6,7,8].includes(2)},11:function(n,o){}},[10]);
