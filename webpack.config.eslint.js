@@ -2,6 +2,7 @@
 const webpackBase = require("./webpack.config.base");
 const webpackMerge = require('webpack-merge') //获取内置的webpack
 const webpack = require('webpack')
+const path =require('path')
 const cssDev = [
     {loader: 'style-loader'}, //加载loader
     {loader: 'css-loader', options: {importLoaders: 1}},
@@ -52,7 +53,7 @@ module.exports = webpackMerge(webpackBase, {
         contentBase: path.join(__dirname, "./src"),
         //因为热更新使用的是内存 默认资源是保存在内存中的 需要使用publishpath制定相对路径
 
-        port: 8032,
+        port: 8088,
         hot: true, //热更新
         hotOnly: true,
         /*inline模式开启服务器*/
