@@ -2,19 +2,12 @@
 const webpackBase = require("./webpack.config.base");
 const webpackMerge = require('webpack-merge') //获取内置的webpack
 const webpack = require('webpack')
-const cssDev = [{
-            loader: 'style-loader'
-        }, //加载loader
-        {
-            loader: 'css-loader',
-            options: {
-                importLoaders: 1
-            }
-        }, {
-            loader: 'postcss-loader'
-        },
+const cssDev = [
+    {loader: 'style-loader'}, //加载loader
+    {loader: 'css-loader', options: {importLoaders: 1}},
+    {loader: 'postcss-loader'},
 
-    ] //开发环境下css的配置
+] //开发环境下css的配置
 
 
 module.exports = webpackMerge(webpackBase, {
@@ -22,12 +15,26 @@ module.exports = webpackMerge(webpackBase, {
 
     /*loader 模块加载*/
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.css$/, //匹配所有css文件
                 use: cssDev,
                 exclude: /node_modules/ //excluder排除怼node下的文件的匹配
             },
-
+            {
+                test: /\.js$/,
+                // 强制先进行 ESLint 检查
+                enforce: "pre",
+                // 不对 node_modules 和 lib 文件夹中的代码进行检查
+                exclude: /node_modules|lib/,
+                loader: "eslint-loader",
+                options: {
+                    // 启用自动修复
+                    fix: true,
+                    // 启用警告信息
+                    emitWarning: true,
+                }
+            },
         ]
     },
     /*插件安装*/
@@ -52,6 +59,6 @@ module.exports = webpackMerge(webpackBase, {
         openPage: './page/index.html', //默认打开的页面
         open: true, //自动打开页面,
         clientLogLevel: "none" //阻止打印那种搞乱七八糟的控制台信息
-            //注意  热更新还存在着许多的bug
+        //注意  热更新还存在着许多的bug
     }
 });
