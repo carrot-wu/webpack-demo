@@ -12,6 +12,9 @@ const cssDev = [
 
 module.exports = webpackMerge(webpackBase, {
 
+    output: {
+        publicPath:'/' //热更新设置默认地址的话 会一直在page页面一直请求数据
+    },
 
     /*loader 模块加载*/
     module: {
@@ -46,10 +49,9 @@ module.exports = webpackMerge(webpackBase, {
     /*开启sourcemap调试*/
     devtool: 'eval-source-map',
     devServer: {
-        //contentBase: path.join(__dirname, "./dist"),
+        contentBase: path.join(__dirname, "./src"),
         //因为热更新使用的是内存 默认资源是保存在内存中的 需要使用publishpath制定相对路径
-        contentBase: './',
-        publicPath: '/',
+
         port: 8032,
         hot: true, //热更新
         hotOnly: true,
