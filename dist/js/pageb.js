@@ -1,0 +1,1 @@
+webpackJsonp([2],{15:function(o,c,e){"use strict";var n=e(0);console.log("pagea"),(0,n.myconsole)()}},[15]);

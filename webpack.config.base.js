@@ -135,9 +135,13 @@ module.exports = {
             // filename: "vendor.js"
             // (Give the chunk a different name)
 
-            minChunks: Infinity,
+            minChunks: 2|Infinity, //最低打进公共包的使用次数
             // (with more entries, this ensures that no other module
             //  goes into the vendor chunk)
+        }),
+	    //抽取manifest
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "manifest",
         }),
 
         //复制文件
