@@ -64,4 +64,4 @@ module.exports = webpackMerge(webpackBase, {
         clientLogLevel: "none" //阻止打印那种搞乱七八糟的控制台信息
         //注意  热更新还存在着许多的bug
     }
-});
+})
