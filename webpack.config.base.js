@@ -25,13 +25,14 @@ templateFileName.forEach((pageName) => {
         /* 删除了 这里加了page目录本来想着页面能够丢到page目录下  后面发现热更新模块并不行 反而资源文件能够读取了*/
         filename: `./page/${pageName}.html`,
         template: path.resolve(__dirname, `./src/page/${pageName}.html`),
-        title:'柔济健康',
+        title:'',//打包的html title
         minify: {
             removeComments: true,
             collapseWhitespace: true
         },
         //TODO 定义每个文件所加载的js模块 自身带的js 以及commonsjs
-        chunks: ['vendor', pageName, 'app']
+        chunks: ['vendor', 'app',pageName],
+	    chunksSortMode:'manual' //定义js加载顺序 按顺序
     })
     //template模板
     HTMLPlugins.push(_htmlTemplate)
