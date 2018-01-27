@@ -4,6 +4,7 @@ const utils = require('./getFileConfig'); //获取文件名称
 const htmlWepackPlugin = require('html-webpack-plugin'); //html模板插件
 const cleanWebpackPlugin = require('clean-webpack-plugin'); //每次清楚dist文件的插件
 const copyWebpackPluigin = require('copy-webpack-plugin'); //复制文件  用于一些无法npm的第三方框架ui 但是需要在html模板中添加css框架
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin') //开启多线程进行加快速度
 
 const webpack = require('webpack') //获取内置的webpack
 /*一些多页面应用的配置*/
@@ -143,7 +144,11 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: "manifest",
         }),
+	    new webpack.HashedModuleIdsPlugin(),//用于固定模块id 防止调整顺序对于id进行重新打包
 
+	    new UglifyJSPlugin({
+		    parallel: true
+	    }), //开启多线程进行打包
         //复制文件
         new copyWebpackPluigin([
             {
