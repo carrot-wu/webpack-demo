@@ -54,7 +54,10 @@ module.exports = {
     entry: Object.assign(entryTemplate, {'app': path.resolve(__dirname, `./src/js/app.js`)}), /*webpack打包的入口文件地址*/
     output: {
         path: path.resolve(__dirname, './dist'), /*webpack打包的文件输出地址*/
-        filename: 'js/[name]-[hash:6].js', /*webpack打包的文件名字 其中【】那么根据入口文件名字进行命名 其中哈有hash:6*/
+        filename: 'js/[name]-[chunkhash:6].js',
+	    /*webpack打包的文件名字 其中【】那么根据入口文件名字进行命名 其中
+        用chunkhash的原因文件没有发生改变并不会修改hash
+        */
         //publicPath 上线替换真实的http,如果设置为/则需把dist下的文件放在项目的根目录
 
 
