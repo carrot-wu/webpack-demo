@@ -16,6 +16,7 @@ const _test = function(data) {
 
 _test("_test");
 
+myconsole()
 
 test.includes(2);
 
