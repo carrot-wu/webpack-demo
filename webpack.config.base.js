@@ -50,7 +50,7 @@ const extractLESS = new ExtractTextPlugin(' stylesheets / [name] -two.css ');
 
 //单独抽离不会变化的第三方库
 const _common = {
-	'common' : ['jquery','manifest']
+	'common' : ['jquery']
 }
 
 
@@ -126,11 +126,11 @@ module.exports = {
         ...HTMLPlugins,
 
         new webpack.optimize.CommonsChunkPlugin({
-            name: "common",
+	        names: ['common', 'manifest'],
 	        minChunks:Infinity
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
+	        names: ['vendor', 'manifest'],
             // filename: "vendor.js"
             // (Give the chunk a different name)
 
