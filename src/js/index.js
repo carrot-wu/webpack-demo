@@ -1,7 +1,7 @@
 
 import '../css/common.css'
 import "../css/index.css";
-
+require("expose-loader?$!jquery");
 import {myconsole} from "../baseJs/public";
 // $('#box').html('这是index页面的文件jq')
 
@@ -16,6 +16,7 @@ const _test = function(data) {
 
 _test("_test");
 
+myconsole()
 
 test.includes(2);
 

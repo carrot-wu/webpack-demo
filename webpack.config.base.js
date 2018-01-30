@@ -31,7 +31,7 @@ templateFileName.forEach((pageName) => {
             collapseWhitespace: true
         },
         //TODO 定义每个文件所加载的js模块 自身带的js 以及commonsjs
-        chunks: ['common','vendor', pageName],
+        chunks: ['vendor','common', pageName],
 	    chunksSortMode:'manual' //定义js加载顺序 按顺序
     })
     //template模板
