@@ -1,0 +1,1 @@
+webpackJsonp([4],{FfW0:function(o,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.myconsole=function(){console.log("这是公用模块")}},G3sI:function(o,e,n){"use strict";var s=n("FfW0");console.log("pagea"),console.log(2131231),(0,s.myconsole)()}},["G3sI"]);

@@ -2,7 +2,6 @@ const path = require('path'); //定义绝对路径
 const fs = require('fs');
 const utils = require('./getFileConfig'); //获取文件名称
 const htmlWepackPlugin = require('html-webpack-plugin'); //html模板插件
-const cleanWebpackPlugin = require('clean-webpack-plugin'); //每次清楚dist文件的插件
 const copyWebpackPluigin = require('copy-webpack-plugin'); //复制文件  用于一些无法npm的第三方框架ui 但是需要在html模板中添加css框架
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin') //开启多线程进行加快速度
 
@@ -32,7 +31,7 @@ templateFileName.forEach((pageName) => {
             collapseWhitespace: true
         },
         //TODO 定义每个文件所加载的js模块 自身带的js 以及commonsjs
-        chunks: ['vendor', 'app',pageName],
+        chunks: ['common','vendor', pageName],
 	    chunksSortMode:'manual' //定义js加载顺序 按顺序
     })
     //template模板
@@ -49,13 +48,17 @@ const extractLESS = new ExtractTextPlugin(' stylesheets / [name] -two.css ');
 */
 
 
+//单独抽离不会变化的第三方库
+const _common = {
+	'common' : ['jquery']
+}
 
 
 module.exports = {
-    entry: Object.assign(entryTemplate, {'app': path.resolve(__dirname, `./src/js/app.js`)}), /*webpack打包的入口文件地址*/
+    entry: Object.assign(entryTemplate, _common), /*webpack打包的入口文件地址*/
     output: {
         path: path.resolve(__dirname, './dist'), /*webpack打包的文件输出地址*/
-        filename: 'js/[name]-[chunkhash:6].js',
+        filename: 'js/[name]-[chunkhash:6].js', //生穿环境用  开发环境必须为hash
 	    /*webpack打包的文件名字 其中【】那么根据入口文件名字进行命名 其中
         用chunkhash的原因文件没有发生改变并不会修改hash
         */
@@ -121,29 +124,22 @@ module.exports = {
     plugins: [
         /*以一个html模板进行创建html文件*/
         ...HTMLPlugins,
-        /*每次进行打包的时候都把dist文件的内容进行清除*/
-        new cleanWebpackPlugin(
-            ['dist'], //这里指每次清除dist文件夹的文件 匹配的文件夹
-            {
-                root: __dirname,//制定插件根目录位置
-                //verbose: true, //开启控制台输出
-                dry: false//启用删除文件
-            }
-        ),
 
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "common",
+	        minChunks:Infinity
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor",
             // filename: "vendor.js"
             // (Give the chunk a different name)
 
-            minChunks: 2|Infinity, //最低打进公共包的使用次数
+            minChunks: 2, //最低打进公共包的使用次数
             // (with more entries, this ensures that no other module
             //  goes into the vendor chunk)
         }),
-	    //抽取manifest
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "manifest",
-        }),
+
+
 	    new webpack.HashedModuleIdsPlugin(),//用于固定模块id 防止调整顺序对于id进行重新打包
 
 	    new UglifyJSPlugin({

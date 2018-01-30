@@ -20,8 +20,8 @@ const cssDev = [{
 
 module.exports = webpackMerge(webpackBase, {
     output: {
-        publicPath:'/'  //热更新设置默认地址的话 会一直在page页面一直请求数据
-
+        publicPath:'/',  //热更新设置默认地址的话 会一直在page页面一直请求数据
+	    filename: 'js/[name]-[hash:6].js'
 
     },
 
