@@ -30,7 +30,7 @@ templateFileName.forEach((pageName) => {
             removeComments: true,
             collapseWhitespace: true
         },
-        //TODO 定义每个文件所加载的js模块 自身带的js 以及commonsjs
+        //
         chunks: ['manifest','vendor','common', pageName],
 	    chunksSortMode:'manual' //定义js加载顺序 按顺序
     })
@@ -124,11 +124,13 @@ module.exports = {
     plugins: [
         /*以一个html模板进行创建html文件*/
         ...HTMLPlugins,
-
+	    //提取公用的库 例如jquery啊 react啊什么的
         new webpack.optimize.CommonsChunkPlugin({
 	        names: ['common'],
 	        minChunks:Infinity
         }),
+
+	    //提取公用的代码 比如多次引用一个base文件
         new webpack.optimize.CommonsChunkPlugin({
 	        names: ['vendor'],
             // filename: "vendor.js"
@@ -138,6 +140,7 @@ module.exports = {
             // (with more entries, this ensures that no other module
             //  goes into the vendor chunk)
         }),
+	    //提取manifest
         new webpack.optimize.CommonsChunkPlugin({
 	        names: ['manifest'],
         }),

@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');//加载分离c
 const webpackMerge = require('webpack-merge')
 const cleanWebpackPlugin = require('clean-webpack-plugin'); //每次清楚dist文件的插件
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 //生产环境css配置
@@ -51,7 +52,8 @@ module.exports = webpackMerge(webpackBase,{
                 /* [name] 根据html名字获取的css名字  contenthash:6加上hash:6值*/
             },
             allChunks: true
-        })
+        }),
 
+	    new BundleAnalyzerPlugin()
     ],
 });

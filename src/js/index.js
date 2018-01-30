@@ -17,6 +17,7 @@ const _test = function(data) {
 _test("_test");
 
 myconsole()
+const tedd = ''
 
 test.includes(2);
 
