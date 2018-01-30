@@ -50,7 +50,7 @@ const extractLESS = new ExtractTextPlugin(' stylesheets / [name] -two.css ');
 
 //单独抽离不会变化的第三方库
 const _common = {
-	'common' : ['jquery']
+	'common' : ['jquery','manifest']
 }
 
 
