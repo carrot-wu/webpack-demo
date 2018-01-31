@@ -39,7 +39,7 @@ module.exports = webpackMerge(webpackBase, {
 		new cleanWebpackPlugin(
 			['dist'], //这里指每次清除dist文件夹的文件 匹配的文件夹
 			{
-				root: `${__dirname}/../../`,//制定插件根目录位置 TODO 好恶心啊
+				root: `${__dirname}/../`,//制定插件根目录位置 TODO 好恶心啊
 				//verbose: true, //开启控制台输出
 				dry: false//启用删除文件
 			}

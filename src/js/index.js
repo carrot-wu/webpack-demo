@@ -14,6 +14,7 @@ const _test = function(data) {
     console.log(data);
 };
 
+console.log(131312312)
 
 console.log(213123123)
 myconsole()
