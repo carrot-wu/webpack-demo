@@ -14,9 +14,11 @@ const _test = function(data) {
     console.log(data);
 };
 
-myconsole()
-const tedd = ''
 
+console.log(213123123)
+myconsole()
+const tedd = '123'
+console.log(tedd)
 test.includes(2);
 
 if (module.hot) {
