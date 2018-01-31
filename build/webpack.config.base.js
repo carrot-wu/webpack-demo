@@ -4,8 +4,12 @@ const utils = require('./getFileConfig'); //获取文件名称
 const htmlWepackPlugin = require('html-webpack-plugin'); //html模板插件
 const copyWebpackPluigin = require('copy-webpack-plugin'); //复制文件  用于一些无法npm的第三方框架ui 但是需要在html模板中添加css框架
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin') //开启多线程进行加快速度
+const HappyPack = require('happypack') //引入happypack
+const os = require('os'); //获取cpu
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 const webpack = require('webpack') //获取内置的webpack
+
 /*一些多页面应用的配置*/
 
 // 定义入口文件的集合
@@ -84,7 +88,8 @@ module.exports = {
             {
                 test: /\.js$/, //匹配所有css文件
                 use: [
-                    {loader: 'babel-loader'}, //编译es6
+                    //{loader: 'babel-loader'}, //编译es6
+                    {loader: 'happypack/loader?id=js'}, //编译es6
                 ],
                 exclude: /node_modules/ //excluder排除怼node下的文件的匹配
             },
@@ -128,6 +133,15 @@ module.exports = {
     plugins: [
         /*以一个html模板进行创建html文件*/
         ...HTMLPlugins,
+
+	    new HappyPack({
+		    id: 'js',
+		    loaders: ['babel-loader?cacheDirectory=true'],
+		    threadPool: happyThreadPool,
+		    // cache: true,
+		    verbose: true
+	    }),
+
 	    //提取公用的库 例如jquery啊 react啊什么的
         new webpack.optimize.CommonsChunkPlugin({
 	        names: ['common'],
