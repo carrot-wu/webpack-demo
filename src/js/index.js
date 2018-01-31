@@ -17,7 +17,7 @@ const _test = function(data) {
 
 console.log(213123123)
 myconsole()
-const tedd = '123'
+const tedd = '12312313131231231231231'
 console.log(tedd)
 test.includes(2);
 
