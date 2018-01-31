@@ -10,6 +10,8 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 const webpack = require('webpack') //获取内置的webpack
 
+const baseConfig = require('./config') //默认配置
+
 /*一些多页面应用的配置*/
 
 // 定义入口文件的集合
@@ -29,7 +31,6 @@ templateFileName.forEach((pageName) => {
         /* 删除了 这里加了page目录本来想着页面能够丢到page目录下  后面发现热更新模块并不行 反而资源文件能够读取了*/
         filename: `./page/${pageName}.html`,
         template: path.resolve(__dirname, `../src/page/${pageName}.html`),
-        title:'',//打包的html title
         minify: {
             removeComments: true,
             collapseWhitespace: true
@@ -54,7 +55,7 @@ const extractLESS = new ExtractTextPlugin(' stylesheets / [name] -two.css ');
 
 //单独抽离不会变化的第三方库
 const _common = {
-	'common' : ['jquery']
+	'common' : baseConfig.common
 }
 
 

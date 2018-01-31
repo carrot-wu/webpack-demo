@@ -26,7 +26,7 @@ module.exports = webpackMerge(webpackBase, {
 	module: {
 		rules: [
 			{
-				test: /\.css$/, //匹配所有css文件
+				test: /\.(css|sass|scss)$/, //匹配所有css文件
 				use: cssProd,
 				exclude: /node_modules/ //excluder排除怼node下的文件的匹配
 			},
@@ -51,6 +51,7 @@ module.exports = webpackMerge(webpackBase, {
 			loaders: [
 				{loader: 'css-loader', options: {importLoaders: 1, minimize: true}},
 				{loader: 'postcss-loader'},
+				{loader:'sass-loader'}
 			]
 
 		}),
@@ -65,6 +66,6 @@ module.exports = webpackMerge(webpackBase, {
 			allChunks: true
 		}),
 
-		new BundleAnalyzerPlugin()
+		//new BundleAnalyzerPlugin()
 	],
 });

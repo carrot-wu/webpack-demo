@@ -1,5 +1,8 @@
 
 import '../css/common.css'
+
+import '../css/base.scss'
+
 import "../css/index.css";
 
 import {myconsole} from "../baseJs/public";

@@ -21,7 +21,7 @@ module.exports = webpackMerge(webpackBase, {
 	/*loader 模块加载*/
 	module: {
 		rules: [{
-			test: /\.css$/, //匹配所有css文件
+			test: /\.(css|sass|scss)$/, //匹配所有css文件
 			use: cssDev,
 			exclude: /node_modules/ //excluder排除怼node下的文件的匹配
 		},
@@ -39,17 +39,15 @@ module.exports = webpackMerge(webpackBase, {
 		new HappyPack({
 			id: 'css',
 			loaders: [
-				{
-					loader: 'style-loader'
-				}, //加载loader
+				{loader: 'style-loader'}, //加载loader
 				{
 					loader: 'css-loader',
 					options: {
 						importLoaders: 1
 					}
-				}, {
-					loader: 'postcss-loader'
 				},
+				{loader: 'postcss-loader'},
+				{loader:'sass-loader'}
 
 			] //开发环境下css的配置
 			,
