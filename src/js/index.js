@@ -14,8 +14,6 @@ const _test = function(data) {
     console.log(data);
 };
 
-_test("_test");
-
 myconsole()
 const tedd = ''
 

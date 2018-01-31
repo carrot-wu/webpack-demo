@@ -24,7 +24,7 @@ templateFileName.forEach((pageName) => {
 
         /* 删除了 这里加了page目录本来想着页面能够丢到page目录下  后面发现热更新模块并不行 反而资源文件能够读取了*/
         filename: `./page/${pageName}.html`,
-        template: path.resolve(__dirname, `./src/page/${pageName}.html`),
+        template: path.resolve(__dirname, `../src/page/${pageName}.html`),
         title:'',//打包的html title
         minify: {
             removeComments: true,
@@ -37,7 +37,7 @@ templateFileName.forEach((pageName) => {
     //template模板
     HTMLPlugins.push(_htmlTemplate)
     //定义入口文件
-    entryTemplate[pageName] = path.resolve(__dirname, `./src/js/${pageName}.js`)
+    entryTemplate[pageName] = path.resolve(__dirname, `../src/js/${pageName}.js`)
 })
 
 
@@ -57,7 +57,7 @@ const _common = {
 module.exports = {
     entry: Object.assign(entryTemplate, _common), /*webpack打包的入口文件地址*/
     output: {
-        path: path.resolve(__dirname, './dist'), /*webpack打包的文件输出地址*/
+        path: path.resolve(__dirname, '../dist'), /*webpack打包的文件输出地址*/
         filename: 'js/[name]-[chunkhash:6].js', //生穿环境用  开发环境必须为hash
 	    /*webpack打包的文件名字 其中【】那么根据入口文件名字进行命名 其中
         用chunkhash的原因文件没有发生改变并不会修改hash
@@ -105,7 +105,9 @@ module.exports = {
                         publicPath:'../' // 所以是基于page文件夹进行相对定位 要设置publicPath绝对路径
                     }
 
-                }, 'image-webpack-loader']
+                }, 'image-webpack-loader'],
+	            exclude: /node_modules/ //excluder排除怼node下的文件的匹配
+
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -115,7 +117,9 @@ module.exports = {
                     name: '[name:6].[ext]',
                     outputPath: 'fonts/',
                     publicPath:'../' //同理 所以是基于page文件夹进行相对定位 要设置publicPath绝对路径
-                }
+                },
+	            exclude: /node_modules/ //excluder排除怼node下的文件的匹配
+
             }
 
         ]
@@ -154,8 +158,8 @@ module.exports = {
         //复制文件
         new copyWebpackPluigin([
             {
-                from: path.resolve(__dirname, './src/commonCss/mui.min.css'),
-                to: path.resolve(__dirname, './dist/commonCss'),
+                from: path.resolve(__dirname, '../src/commonCss/mui.min.css'),
+                to: path.resolve(__dirname, '../dist/commonCss'),
                 force: true
             }
         ])

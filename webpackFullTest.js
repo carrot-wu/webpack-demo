@@ -1,6 +1,6 @@
 const path = require('path'); //定义绝对路径
 const fs = require('fs');
-const utils = require('./getFileConfig'); //获取文件名称
+const utils = require('./build/getFileConfig'); //获取文件名称
 const htmlWepackPlugin = require('html-webpack-plugin'); //html模板插件
 const cleanWebpackPlugin = require('clean-webpack-plugin'); //每次清楚dist文件的插件
 const ExtractTextPlugin = require('extract-text-webpack-plugin');//加载分离css文件和js文件的插件
