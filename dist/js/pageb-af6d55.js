@@ -1,0 +1,1 @@
+webpackJsonp([3],{Jo8s:function(o,s,c){"use strict";c("0lA4");var e=c("FfW0");console.log("pagea"),(0,e.myconsole)()}},["Jo8s"]);

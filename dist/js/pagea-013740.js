@@ -1,0 +1,1 @@
+webpackJsonp([4],{"Vj+W":function(o,e,s){"use strict";s("0lA4");var c=s("FfW0");console.log("pagea"),console.log("test111111"),(0,c.myconsole)()}},["Vj+W"]);
