@@ -143,7 +143,7 @@ module.exports = {
 		    verbose: true
 	    }),
 
-	    //提取公用的代码 比如多次引用一个base文件
+	    //提取公用业务的代码 比如多次引用一个base文件
 	    new webpack.optimize.CommonsChunkPlugin({
 		    names: ['vendor'],
 		    // filename: "vendor.js"
@@ -154,16 +154,24 @@ module.exports = {
 		    //  goes into the vendor chunk)
 	    }),
 
+/*
 	    //提取公用的库 例如jquery啊 react啊什么的
         new webpack.optimize.CommonsChunkPlugin({
 	        names: ['common'],
 	        minChunks:Infinity
         }),
 
-	    //提取manifest
+	    //提取webpack生成的代码manifest
         new webpack.optimize.CommonsChunkPlugin({
 	        names: ['manifest'],
+	        minChunks:Infinity
         }),
+*/
+	    //提取公用的库 例如jquery啊 react啊什么的 以及 webpack生成的代码manifest
+	    new webpack.optimize.CommonsChunkPlugin({
+		    names: ['common','manifest'],
+		    minChunks:Infinity
+	    }),
 
 
 	    new webpack.HashedModuleIdsPlugin(),//用于固定模块id 防止调整顺序对于id进行重新打包

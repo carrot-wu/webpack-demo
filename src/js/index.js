@@ -1,9 +1,7 @@
 
-import '../css/common.css'
-
-import '../css/base.scss'
-
-import "../css/index.css";
+import '../css/index.scss'
+import * as base from '../commonJs/base'
+base._console()
 
 import {myconsole} from "../baseJs/public";
 // $('#box').html('这是index页面的文件jq')

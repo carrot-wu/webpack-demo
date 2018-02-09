@@ -1,1 +1,0 @@
-webpackJsonp([2],{"0lA4":function(e,o){},FfW0:function(e,o,n){"use strict";Object.defineProperty(o,"__esModule",{value:!0}),o.myconsole=function(){console.log("这是公用模块")}}});

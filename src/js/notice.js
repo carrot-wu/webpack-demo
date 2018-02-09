@@ -1,4 +1,4 @@
-
+import '../css/base.scss'
 import {myconsole} from "../baseJs/public";
 
 console.log("pagea");
