@@ -1,0 +1,2 @@
+/*! 吴hr版权所有，翻版必究 */
+webpackJsonp([4],{UBeP:function(o,n){},vGYV:function(o,n,e){"use strict";e("7f8+"),e("UBeP");var c=function(o){if(o&&o.__esModule)return o;var n={};if(null!=o)for(var e in o)Object.prototype.hasOwnProperty.call(o,e)&&(n[e]=o[e]);return n.default=o,n}(e("ec93")),l=e("FfW0");c._console(),$("img").on("click",function(){console.log(21112)}),console.log(131312312),console.log(213123123),(0,l.myconsole)(),console.log("12312313131231231231231"),[1,2,3,4,5,6,7,8].includes(2)}},["vGYV"]);

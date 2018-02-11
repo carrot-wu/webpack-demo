@@ -1,4 +1,4 @@
-
+import '../css/base.scss'
 import '../css/index.scss'
 import * as base from '../commonJs/base'
 base._console()

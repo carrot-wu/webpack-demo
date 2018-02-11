@@ -10,5 +10,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jQuery-2.0.0" level="application" />
     <orderEntry type="library" name="jquery-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="vue-resource-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="@types/vex-js" level="application" />
   </component>
 </module>

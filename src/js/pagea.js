@@ -1,3 +1,4 @@
+import '../css/base.scss'
 import '../css/pagea.scss'
 import * as base from '../commonJs/base'
 base._console()
