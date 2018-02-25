@@ -1,0 +1,2 @@
+/*! 吴hr版权所有，翻版必究 */
+webpackJsonp([3],{"RbS/":function(o,e){},"Vj+W":function(o,e,n){"use strict";n("xVWP"),n("RbS/");var t=function(o){if(o&&o.__esModule)return o;var e={};if(null!=o)for(var n in o)Object.prototype.hasOwnProperty.call(o,n)&&(e[n]=o[n]);return e.default=o,e}(n("8iyq")),l=n("DzTd");t._console(),console.log("pagea"),console.log("test111111"),(0,l.myconsole)()}},["Vj+W"]);

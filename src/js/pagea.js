@@ -1,9 +1,9 @@
-import '../css/base.scss'
-import '../css/pagea.scss'
-import * as base from '../commonJs/base'
+import '../sass/base.scss'
+import '../sass/pagea.scss'
+import * as base from '../lib/libJs/base'
 base._console()
 
-import {myconsole} from "../baseJs/public";
+import {myconsole} from "../lib/libJs/public";
 
 console.log("pagea");
 

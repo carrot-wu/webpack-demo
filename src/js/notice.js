@@ -1,5 +1,5 @@
-import '../css/base.scss'
-import {myconsole} from "../baseJs/public";
+import '../sass/base.scss'
+import {myconsole} from "../lib/libJs/public";
 
 console.log("pagea");
 console.log(2131231)

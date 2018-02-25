@@ -1,9 +1,9 @@
 
-import "../css/common.css";
+import "../sass/common.css";
 
 // import '../css/style.less'
 require("expose-loader?$!jquery");
-import {_console, creatElement} from "../commonJs/base.js";
+import {_console, creatElement} from "../lib/libJs/base.js";
 
 function hello() {
     console.log("hello", "world");

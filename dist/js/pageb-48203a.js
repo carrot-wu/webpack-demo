@@ -1,0 +1,2 @@
+/*! 吴hr版权所有，翻版必究 */
+webpackJsonp([2],{Jo8s:function(o,n,e){"use strict";e("QiNo");var r=function(o){if(o&&o.__esModule)return o;var n={};if(null!=o)for(var e in o)Object.prototype.hasOwnProperty.call(o,e)&&(n[e]=o[e]);return n.default=o,n}(e("8iyq")),t=e("DzTd");r._console(),console.log("pagea"),(0,t.myconsole)()},QiNo:function(o,n){}},["Jo8s"]);

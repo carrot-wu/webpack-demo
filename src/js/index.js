@@ -1,9 +1,9 @@
-import '../css/base.scss'
-import '../css/index.scss'
-import * as base from '../commonJs/base'
+import '../sass/base.scss' //基础样式
+import '../sass/index.scss'
+import * as base from '../lib/libJs/base'
 base._console()
 
-import {myconsole} from "../baseJs/public";
+import {myconsole} from "../lib/libJs/public";
 // $('#box').html('这是index页面的文件jq')
 
 $("img").on("click", function() {
