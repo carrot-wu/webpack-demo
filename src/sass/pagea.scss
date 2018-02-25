@@ -1,4 +1,8 @@
 
+@import "./variable/_variables";
+#box{
+  background-color: $base-color;
+}
 .pagea{
   width: 100%;
 }
