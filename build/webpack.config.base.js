@@ -109,7 +109,7 @@ module.exports = {
 							name: '[name]-[hash:6].[ext]',
 							outputPath: 'image/',
 							limit: 4000,
-							publicPath: '../' // 所以是基于page文件夹进行相对定位 要设置publicPath绝对路径
+							publicPath: '../image' // 所以是基于page文件夹进行相对定位 要设置publicPath绝对路径
 						}
 					},
 					{
@@ -133,7 +133,7 @@ module.exports = {
 					limit: 10000,
 					name: '[name:6].[ext]',
 					outputPath: 'fonts/',
-					publicPath: '../' //同理 所以是基于page文件夹进行相对定位 要设置publicPath绝对路径
+					publicPath: '../fonts' //同理 所以是基于page文件夹进行相对定位 要设置publicPath绝对路径
 				},
 				exclude: /node_modules/ //excluder排除怼node下的文件的匹配
 
