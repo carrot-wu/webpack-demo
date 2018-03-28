@@ -109,7 +109,7 @@ module.exports = {
 							name: '[name]-[hash:6].[ext]',
 							outputPath: 'image/',
 							limit: 4000,
-							publicPath: '../image' // 所以是基于page文件夹进行相对定位 要设置publicPath绝对路径
+							publicPath: '../' // 所以是基于page文件夹进行相对定位 要设置publicPath绝对路径
 						}
 					},
 					{
@@ -161,20 +161,7 @@ module.exports = {
 			chunks:[...templateFileName],
 			minChunks: 2, //最低打进公共包的使用次数
 		}),
-/*
 
-				//提取公用的库 例如jquery啊 react啊什么的
-				new webpack.optimize.CommonsChunkPlugin({
-					names: ['common'],
-					minChunks:Infinity
-				}),
-
-				//提取webpack生成的代码manifest
-				new webpack.optimize.CommonsChunkPlugin({
-					names: ['manifest'],
-					minChunks:Infinity
-				}),
-*/
 		//提取公用的库 例如jquery啊 react啊什么的 以及 webpack生成的代码manifest
 		new webpack.optimize.CommonsChunkPlugin({
 			names: ['common', 'manifest'],
